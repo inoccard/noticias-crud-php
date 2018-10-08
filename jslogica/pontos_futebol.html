@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Pontos Futebol</title>
+</head>
+<body>
+	<script type="text/javascript">
+
+		function calculaPontos(vitorias,empates,derrotas){
+			return (vitorias * 3) + empates-(derrotas*(-1)); //parseInt converte string (do prompt) em números matemáticos
+		};
+
+		function mostra(res){
+			document.write("<big>"+res+"</big>");
+			pulaLinha();
+		};
+		function pulaLinha(){
+			document.write("<br>");
+		};
+
+		var vitorias = prompt("Quantos jogos o CDC Futebol Clube venceu?");
+		var empates = prompt("Quantos jogos o CDC Futebol Clube empatou?");
+		var derrotas = prompt("Quantas derrotas o CDC Futebol Clube teve?");
+		
+		var vitoriasAdv = prompt("Quantos jogos o LV Futebol Clube venceu?");
+		var empatesAdv = prompt("Quantos jogos o LV Futebol Clube empatou?");
+		var derrotasAdv = prompt("Quantas derrotas o LV Futebol Clube teve?");
+
+		var pontos = calculaPontos(vitorias,parseInt(empates),parseInt(derrotas)); //parseInt converte string (do prompt) em números matemáticos
+		var pontosAdv = calculaPontos(vitoriasAdv,parseInt(empatesAdv),parseInt(derrotasAdv));
+		
+		mostra("Nosso time tem " + pontos + " pontos!");
+		mostra("O time Livros Velhos tem " + pontosAdv + " pontos!");
+		
+		if(pontos > pontosAdv){
+			mostra("Nosso time está indo melhor que o time Livros Velhos!");
+		}
+		if(pontos < pontosAdv){
+			mostra("Nosso time está indo pior que o time Livros Velhos!");	
+		}
+		if(pontos == pontosAdv){
+			mostra("Nosso time está Empatado com o time Livros Velhos!");
+		}
+
+	</script>
+
+</body>
+</html>

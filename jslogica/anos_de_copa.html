@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Copa do Mundo</title>
+</head>
+<body>
+	<script type="text/javascript">
+		
+		function mostra(frase){
+			document.write(frase + "<br>");
+		};
+		
+		var anoDeCopa = 1930;
+		var anoLimite = prompt("Qual é o ano limite?");
+		while(anoDeCopa <= parseInt(anoLimite)){
+			mostra(anoDeCopa + " tem Copa!");
+			anoDeCopa = anoDeCopa + 4;
+		}
+		mostra("Ufa! Esses foram os anos de copa até " + anoLimite);
+	</script>
+</body>
+</html>
