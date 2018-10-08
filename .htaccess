@@ -1,0 +1,20 @@
+# Ativa o módulo Rewrite, que faz a reescrita de URL
+RewriteEngine On
+
+# REQUEST_FILENAME é o caminho completo do arquivo que atende ao request original, 
+##tomando por base o filesystem da máquina, e não relativo à hospedagem.
+# -d Pega o resultado da REQUEST_FILENAME, verifica se é um diretório existente
+# Determina que o rewrite só se aplicará se nao (!) existir um diretório (-d) com aquele nome
+RewriteCond %{REQUEST_FILENAME} !-d
+#-f Pega o resultado da REQUEST_FILENAME, verifica se é um arquivo existente
+# Determina que o rewrite só se aplicará se nao (!) existir um arquivo (-f) com aquele nome
+RewriteCond %{REQUEST_FILENAME} !-f
+#-l Verifica se o resultado da TestString é caminho para um link simbólico
+RewriteCond %{REQUEST_FILENAME} !-l
+
+# RewriteRule faz a reescrita do URL, e se ocorrer mais de uma vez, 
+##é aplicada na ordem sequencial do arquivo.
+# QSA(query string append) depois das modificações feitas, aplica a query string original ao 
+##final da linha (em outras palavras, preserva o que tinha depois da ? no URI original)
+# L considera este sendo o último Rewrite, não aplicando mais nenhuma regra que modifique o URL
+RewriteRule ^(.+)$ index.php?path=$1 [QSA,L]
