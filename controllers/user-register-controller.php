@@ -31,7 +31,7 @@ class UserRegisterController extends MainController
 	 */
     public function index() {
 		// Page title
-		$this->title = 'User Register';
+		$this->title = 'Registro de usuários';
 		
 		// Verifica se o usuário está logado
 		if ( ! $this->logged_in ) {
