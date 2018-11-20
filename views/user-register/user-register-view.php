@@ -18,19 +18,19 @@ $modelo->del_user( $parametros );
 				?>" /></td>
 		</tr>
 		<tr>
-			<td>User: </td>
+			<td>Usuário: </td>
 			<td> <input type="text" name="user" value="<?php
 				echo htmlentities( chk_array( $modelo->form_data, 'user') );
 			?>" /></td>
 		</tr>
 		<tr>
-			<td>Password: </td>
+			<td>Senha: </td>
 			<td> <input type="password" name="user_password" value="<?php
 			echo htmlentities( chk_array( $modelo->form_data, 'user_password') );
 			?>" /></td>
 		</tr>
 		<tr>
-			<td>Permissions <br><small>(Separate permissions using commas)</small>: </td>
+			<td>Permissões <br><small>(Separar as permissões com ponto-e-virgula)</small>: </td>
 			<td> <input type="text" name="user_permissions" value="<?php
 			echo htmlentities( chk_array( $modelo->form_data, 'user_permissions') );
 			?>" /></td>
