@@ -88,22 +88,23 @@ $modelo->sem_limite = true;
 	<!-- LISTA AS NOTICIAS -->
 	<?php $lista = $modelo->listar_noticias(); ?>
 
-	<table class="list-table">
+	<table class="list-table table table-striped">
 
 		<?php foreach( $lista as $noticia ):?>
-			
-			<tr>
-				<td><?php echo $noticia['noticia_titulo']?></td>
-				<td>
-					<a href="<?php echo $edit_uri . $noticia['noticia_id']?>">
-						Editar
-					</a> 
-					
-					<a href="<?php echo $delete_uri . $noticia['noticia_id']?>">
-						Apagar
-					</a>
-				</td>
-			</tr>
+			<tbody>
+				<tr>
+					<td><?php echo $noticia['noticia_titulo']?></td>
+					<td>
+						<a href="<?php echo $edit_uri . $noticia['noticia_id']?>">
+							Editar
+						</a> 
+						
+						<a href="<?php echo $delete_uri . $noticia['noticia_id']?>">
+							Apagar
+						</a>
+					</td>
+				</tr>
+			</tbody>
 			
 		<?php endforeach; ?>
 
