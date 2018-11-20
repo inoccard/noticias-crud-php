@@ -83,7 +83,7 @@ class MainController extends UserLogin
 		// Verifica o login
 		$this->check_userlogin();
 		
-	} // __construct
+	} // fim __construct
 	
 	/**
 	 * Load model
@@ -130,8 +130,8 @@ class MainController extends UserLogin
 			// The end :)
 			return;
 			
-		} // load_model
+		} // fim if load_model
 		
-	} // load_model
+	} // fim load_model
 
-} // class MainController
+} // fim class MainController
