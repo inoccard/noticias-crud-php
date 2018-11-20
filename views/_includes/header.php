@@ -16,7 +16,7 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width">
 
-	<link rel="stylesheet" href="<?php echo HOME_URI;?>/views/_css/style.css">
+	<link rel="stylesheet" href="<?php echo HOME_URI;?>/views/_css/stylebasico.css">
 
 	<!--[if lt IE 9]>
 	<script src="<?php echo HOME_URI;?>/views/_js/scripts.js"></script>
