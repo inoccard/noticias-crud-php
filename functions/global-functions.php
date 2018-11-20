@@ -18,11 +18,11 @@ function chk_array ( $array, $key ) {
 	
 	// Retorna nulo por padrão
 	return null;
-} // chk_array
+} // fim chk_array
 
 /**
  * Função para carregar automaticamente todas as classes padrão
- * Ver: http://php.net/manual/pt_BR/function.autoload.php.
+ * Ver: http://php.net/manual/pt_BR/language.oop5.autoload.php
  * Nossas classes estão na pasta classes/.
  * O nome do arquivo deverá ser class-NomeDaClasse.php.
  * Por exemplo: para a classe TutsupMVC, o arquivo vai chamar class-TutsupMVC.php
