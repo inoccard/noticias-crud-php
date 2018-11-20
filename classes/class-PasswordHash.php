@@ -40,14 +40,25 @@ class PasswordHash {
 
 		$this->portable_hashes = $portable_hashes;
 
-		$this->random_state = microtime();
+		$this->random_state = microtime(); // microtime — Retorna um timestamp Unix em microsegundos
 		if (function_exists('getmypid'))
-			$this->random_state .= getmypid();
+			$this->random_state .= getmypid(); // getmypid - Obtém o ID do processo PHP
 	}
 
 	function get_random_bytes($count)
 	{
 		$output = '';
+		/** 
+		 * is_readable — Diz se o arquivo existe e se ele pode ser lido
+		 * 
+		 * fopen — Abre um arquivo ou URL
+		 * Se o arquivo já existir, a chamada a fopen() falhará, 
+		 * retornando FALSE e gerando um erro de nível E_WARNING . Se o arquivo não existir, tenta criá-lo.
+		 * 
+		 * fread — Leitura binary-safe do arquivo
+		 * 
+		 * fclose — Fecha o ponteiro do arquivo aberto
+		 * */
 		if (is_readable('/dev/urandom') &&
 		    ($fh = @fopen('/dev/urandom', 'rb'))) {
 			$output = fread($fh, $count);
@@ -57,10 +68,8 @@ class PasswordHash {
 		if (strlen($output) < $count) {
 			$output = '';
 			for ($i = 0; $i < $count; $i += 16) {
-				$this->random_state =
-				    md5(microtime() . $this->random_state);
-				$output .=
-				    pack('H*', md5($this->random_state));
+				$this->random_state = md5(microtime() . $this->random_state);
+				$output .= pack('H*', md5($this->random_state)); //pack - Empacota dados em string binária
 			}
 			$output = substr($output, 0, $count);
 		}
@@ -211,8 +220,7 @@ class PasswordHash {
 
 		if (CRYPT_BLOWFISH == 1 && !$this->portable_hashes) {
 			$random = $this->get_random_bytes(16);
-			$hash =
-			    crypt($password, $this->gensalt_blowfish($random));
+			$hash = crypt($password, $this->gensalt_blowfish($random));
 			if (strlen($hash) == 60)
 				return $hash;
 		}
