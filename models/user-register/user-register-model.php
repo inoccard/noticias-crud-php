@@ -106,7 +106,7 @@ class UserRegisterModel
 		
 		// Verifica se a consulta foi realizada com sucesso
 		if ( ! $db_check_user ) {
-			$this->form_msg = '<p class="form_error">Internal error.</p>';
+			$this->form_msg = '<p class="form_error">Internal error: consulta não foi sucedida.</p>';
 			return;
 		}
 		
@@ -126,7 +126,7 @@ class UserRegisterModel
 		// Verifica se as permissões tem algum valor inválido: 
 		// 0 a 9, A a Z e , . - _
 		if ( preg_match( '/[^0-9A-Za-z\,\.\-\_\s ]/is', $this->form_data['user_permissions'] ) ) {
-			$this->form_msg = '<p class="form_error">Use just letters, numbers and a comma for permissions.</p>';
+			$this->form_msg = '<p class="form_error">Use apenas letras, numeros, underline e uma virgula para permissões.</p>';
 			return;
 		}		
 		
@@ -155,12 +155,12 @@ class UserRegisterModel
 			
 			// Verifica se a consulta está OK e configura a mensagem
 			if ( ! $query ) {
-				$this->form_msg = '<p class="form_error">Internal error. Data has not been sent.</p>';
+				$this->form_msg = '<p class="form_error">Internal error. Os dados não foram enviados.</p>';
 				
 				// Termina
 				return;
 			} else {
-				$this->form_msg = '<p class="form_success">User successfully updated.</p>';
+				$this->form_msg = '<p class="form_success">Usuário atualizado.</p>';
 				
 				// Termina
 				return;
@@ -179,12 +179,12 @@ class UserRegisterModel
 			
 			// Verifica se a consulta está OK e configura a mensagem
 			if ( ! $query ) {
-				$this->form_msg = '<p class="form_error">Internal error. Data has not been sent.</p>';
+				$this->form_msg = '<p class="form_error">Internal error. Os dados não foram enviados.</p>';
 				
 				// Termina
 				return;
 			} else {
-				$this->form_msg = '<p class="form_success">User successfully registered.</p>';
+				$this->form_msg = '<p class="form_success">Usuário Registrado.</p>';
 				
 				// Termina
 				return;
@@ -229,7 +229,7 @@ class UserRegisterModel
 		
 		// Verifica se os dados da consulta estão vazios
 		if ( empty( $fetch_userdata ) ) {
-			$this->form_msg = '<p class="form_error">User do not exists.</p>';
+			$this->form_msg = '<p class="form_error">Usuário não existe.</p>';
 			return;
 		}
 		
