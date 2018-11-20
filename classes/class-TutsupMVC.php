@@ -180,6 +180,6 @@ class TutsupMVC
 			// echo '</pre>';
 		}
 	
-	} // get_url_data
+	} // fim get_url_data
 	
-} // class TutsupMVC
+} // fim class TutsupMVC
